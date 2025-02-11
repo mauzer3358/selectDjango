@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+<body>
+
+{% block title %}
+    <h1>{{title}}</h1>
+    <hr>
+{% endblock %}
+
+{% block content%}
+    <a href = '/'>На главную |</a>
+    <hr>
+
+    <form method="post">
+            <table>
+             {{form.as_table}}
+                </table>
+            {% csrf_token %}
+            <button type="submit">Подтвердить</button>
+    </form>
+    <hr>
+{% endblock %}
+
+{% block directors %}
+    <ul>
+        {% for d in dir_list %}
+            <li> <h3>Режиссер: {{d.name}}</h3> </li>
+            <li> Жанр: {{d.genre}} </li>
+            <li> Опыт: {{d.experience}} </li>
+            <li> Цена: {{d.price}} </li>
+            <li> Фото: {{d.foto}} </li>
+        <hr>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+
+
+
+
+</body>
+</html>
+
+
